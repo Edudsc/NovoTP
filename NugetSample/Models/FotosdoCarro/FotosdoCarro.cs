@@ -9,8 +9,7 @@ using IdentitySample.Models;
 namespace IdentitySample.Models
 {
     [Table("Fotos")]
-    [MetadataType(typeof(ViewModelFotos))]
-    public partial class FotosdoCarro
+    public class FotosdoCarro
     {
         [Key]
         public int FotosdoCarroId { get; set; }
@@ -21,5 +20,10 @@ namespace IdentitySample.Models
         //public virtual Carro Carro { get; set; }
 
         public string Url { get; set; }
+
+        public FotosdoCarro()
+        {
+
+        }
     }
 }

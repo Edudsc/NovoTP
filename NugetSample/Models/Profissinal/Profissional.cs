@@ -9,8 +9,7 @@ using IdentitySample.Models;
 namespace IdentitySample.Models
 {
     [Table("Profissionais")]
-    [MetadataType(typeof(ViewModelProfissional))]
-    public partial class Profissional
+    public class Profissional
     {
         [Key]
         public int ProfissionalId { get; set; }
@@ -49,5 +48,9 @@ namespace IdentitySample.Models
         //Lista de mensagens?
         public IList<Mensagem> Mensagens { get; set; }
 
+        public Profissional()
+        {
+
+        }
     }
 }

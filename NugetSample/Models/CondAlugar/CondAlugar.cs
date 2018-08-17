@@ -9,8 +9,7 @@ using IdentitySample.Models;
 namespace IdentitySample.Models
 {
     [Table("CondicoesdeAluguer")]
-    [MetadataType(typeof(ViewModelCondAlugar))]
-    public partial class CondAlugar
+    public class CondAlugar
     {
         [Key]
         public int CondAlugaId { get; set; }
@@ -49,6 +48,10 @@ namespace IdentitySample.Models
 
         [Column("ClassificacaoMinimaRequerida")]
         public int CassificacaoMinCli { get; set; }
-      
+
+        public CondAlugar()
+        {
+
+        }
     }
 }

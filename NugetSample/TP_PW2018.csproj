@@ -233,7 +233,6 @@
     <Content Include="Views\UsersAdmin\Edit.cshtml" />
     <Content Include="Views\UsersAdmin\Details.cshtml" />
     <Content Include="Views\UsersAdmin\Delete.cshtml" />
-    <Content Include="Views\UsersAdmin\Create.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
@@ -276,6 +275,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ParticularsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
@@ -288,6 +288,14 @@
     <Compile Include="Migrations\201808151711448_FirstMigration.cs" />
     <Compile Include="Migrations\201808151711448_FirstMigration.Designer.cs">
       <DependentUpon>201808151711448_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808152303409_mudaparaint.cs" />
+    <Compile Include="Migrations\201808152303409_mudaparaint.Designer.cs">
+      <DependentUpon>201808152303409_mudaparaint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808161845529_Majorupdate.cs" />
+    <Compile Include="Migrations\201808161845529_Majorupdate.Designer.cs">
+      <DependentUpon>201808161845529_Majorupdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -326,6 +334,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Particulars\Create.cshtml" />
+    <Content Include="Views\Particulars\Delete.cshtml" />
+    <Content Include="Views\Particulars\Details.cshtml" />
+    <Content Include="Views\Particulars\Edit.cshtml" />
+    <Content Include="Views\Particulars\Index.cshtml" />
+    <Content Include="Views\UsersAdmin\CreateParticular.cshtml" />
+    <Content Include="Views\Account\RegisterParticular.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -343,6 +358,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808151711448_FirstMigration.resx">
       <DependentUpon>201808151711448_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808152303409_mudaparaint.resx">
+      <DependentUpon>201808152303409_mudaparaint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161845529_Majorupdate.resx">
+      <DependentUpon>201808161845529_Majorupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

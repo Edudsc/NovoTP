@@ -9,14 +9,17 @@ using IdentitySample.Models;
 namespace IdentitySample.Models
 {
     [Table("Zonas")]
-    [MetadataType(typeof(ViewModelZonas))]
-    public partial class Zonas
+    public class Zonas
     {
         [Key]
         public int ZonasId { get; set; }
 
         [Column("ZonadeAluger")]
         public string NomeZona { get; set; }
-        
+
+        public Zonas()
+        {
+
+        }
     }
 }

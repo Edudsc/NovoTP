@@ -1,0 +1,74 @@
+﻿@model IdentitySample.Models.Particular
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Particular</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Morada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Morada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cconducao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cconducao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ParticularId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

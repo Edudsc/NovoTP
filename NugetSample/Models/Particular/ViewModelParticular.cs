@@ -30,19 +30,32 @@ namespace IdentitySample.Models
 
         [Required(ErrorMessage = "O campo Carta de Condução é obrigatório")]
         [Display(Name = "Carta de Condução: ")]
-        [RegularExpression(@"^[A - Z] -\d{6} \d{1}$",ErrorMessage = "Insira o seu numero da carta de condução no formato Letra(Maiúscula) - (6algarismos)(espaço)1(algarismo)!")]
-        public int Cconducao { get; set; }
+        [RegularExpression(@"^[A-Z] - \d{6} \d{1}$",ErrorMessage = "Insira o seu numero da carta de condução no formato Letra(Maiúscula) - (6 algarismos) (1 algarismo)!")]
+        public string Cconducao { get; set; }
+
+        
 
         [Required]
         [Display(Name = "Email: ")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-
         [Required(ErrorMessage = "Insira o seu contacto!")]
         [Display(Name = "Contacto: ")]
         [DataType(DataType.PhoneNumber)]
         public int Tel { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [StringLength(100, ErrorMessage = "A {0} deve ter pelo menos {2} caracters.", MinimumLength = 5)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirmar password")]
+        [Compare("Password", ErrorMessage = "As passwords não coincidem")]
+        public string ConfirmPassword { get; set; }
+
 
     }
 }

@@ -9,8 +9,7 @@ using IdentitySample.Models;
 namespace IdentitySample.Models
 {
     [Table("CriteriosCliente")]
-    [MetadataType(typeof(ViewModelCritcliente))]
-    public partial class Critcliente
+    public class Critcliente
     {
         [Key]
         public int CritclienteId { get; set; }
@@ -34,6 +33,9 @@ namespace IdentitySample.Models
         [Column("DataEntrega")]
         public bool DataEntrega { get; set; }
 
-        
+        public Critcliente()
+        {
+
+        }
     }
 }

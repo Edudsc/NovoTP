@@ -9,8 +9,8 @@ using IdentitySample.Models;
 namespace IdentitySample.Models
 {
     [Table("Servicos")]
-    [MetadataType(typeof(ViewModelServico))]
-    public partial class Servicos
+
+    public class Servicos
     {
         [Key]
         public int ServicosId { get; set; }
@@ -34,5 +34,9 @@ namespace IdentitySample.Models
         [Column("DataFinal")]
         public DateTime DataFim { get; set; }
 
+        public Servicos()
+        {
+
+        }
     }
 }

@@ -17,8 +17,7 @@ namespace IdentitySample.Models
         Eletrico
     }
     [Table("Carros")]
-    [MetadataType(typeof(ViewModelCarro))]
-    public partial class Carro
+    public class Carro
     {
         [Key]
         public int CarroId { get; set; }
@@ -61,5 +60,9 @@ namespace IdentitySample.Models
 
         public IList<FotosdoCarro> FotosdoCarros { get; set; }
 
+        public Carro()
+        {
+
+        }
     }
 }

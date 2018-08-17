@@ -9,8 +9,7 @@ using IdentitySample.Models;
 namespace IdentitySample.Models
 {
     [Table("AvaliaCarro")]
-    [MetadataType(typeof(ViewModelAval))]
-    public partial class Avalcarro
+    public class Avalcarro
     {
         [Key]
         [Column("Id")]
@@ -39,5 +38,9 @@ namespace IdentitySample.Models
         [Column("Limpeza")]
         public int Limpeza { get; set; }
 
+        public Avalcarro()
+        {
+
+        }
     }
 }

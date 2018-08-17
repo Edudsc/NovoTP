@@ -16,6 +16,8 @@ namespace IdentitySample.Controllers
     [Authorize(Roles = "Admin")]
     public class UsersAdminController : Controller
     {
+        private ApplicationDbContext db=new ApplicationDbContext();
+
         public UsersAdminController()
         {
         }
@@ -232,6 +234,67 @@ namespace IdentitySample.Controllers
                 }
                 return RedirectToAction("Index");
             }
+            return View();
+        }
+
+        // GET: Particulars/Create
+        public ActionResult CreateParticular()
+        {
+            return View();
+        }
+
+        // POST: Particulars/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateParticular(ViewModelParticular model)
+        {
+            if (ModelState.IsValid)
+            {
+                var dados = new Particular
+                {
+                    Nome = model.Nome,
+                    Bi = model.Bi,
+                    Morada = model.Morada,
+                    DataNascimento = model.DataNascimento,
+                    Cconducao = model.Cconducao,
+                    Email = model.Cconducao,
+                    Tel = model.Tel
+                };
+
+                db.Particulares.Add(dados);
+                db.SaveChanges();
+
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Perfil = "Particular",
+                    ParticularId = dados.ParticularId
+                };
+
+                var adminresult = await UserManager.CreateAsync(user, model.Password);
+                //Add User ao Role
+                if (adminresult.Succeeded)
+                {
+                    var result = await UserManager.AddToRoleAsync(user.Id, "Particular");
+                    if (!result.Succeeded)
+                    {
+                        ModelState.AddModelError("", result.Errors.First());
+                        return View();
+                    }
+
+                }
+                else
+                {
+                    ModelState.AddModelError("", adminresult.Errors.First());
+                    return View();
+                }
+
+                return RedirectToAction("Index");
+            }
+
             return View();
         }
     }

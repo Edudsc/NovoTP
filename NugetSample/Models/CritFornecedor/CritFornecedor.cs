@@ -9,8 +9,7 @@ using IdentitySample.Models;
 namespace IdentitySample.Models
 {
     [Table("CriteriosFornecedor")]
-    [MetadataType(typeof(ViewModelCritFonecedor))]
-    public partial class CritFornecedor
+    public class CritFornecedor
     {
         [Key]
         public int CritFornecedorId { get; set; }
@@ -42,6 +41,9 @@ namespace IdentitySample.Models
         [Column("Responsividade")]
         public int RapidezRsp { get; set; }
 
+        public CritFornecedor()
+        {
 
+        }
     }
 }

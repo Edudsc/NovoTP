@@ -15,6 +15,8 @@ namespace IdentitySample.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+ 
         public AccountController()
         {
         }
@@ -135,7 +137,7 @@ namespace IdentitySample.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult RegisterParticular()
         {
             return View();
         }
@@ -145,19 +147,41 @@ namespace IdentitySample.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> RegisterParticular(ViewModelParticular model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var dados = new Particular
+                {
+                    Nome = model.Nome,
+                    Bi = model.Bi,
+                    Morada = model.Morada,
+                    DataNascimento = model.DataNascimento,
+                    Cconducao = model.Cconducao,
+                    Email = model.Cconducao,
+                    Tel = model.Tel
+                };
+
+                db.Particulares.Add(dados);
+                db.SaveChanges();
+
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Perfil = "Particular",
+                    ParticularId = dados.ParticularId
+                };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
+                 
                 if (result.Succeeded)
                 {
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
-                    ViewBag.Link = callbackUrl;
-                    return View("DisplayEmail");
+                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
+                    await this.UserManager.AddToRoleAsync(user.Id, "Geral");
+                    return RedirectToAction("Login");
                 }
                 AddErrors(result);
             }

@@ -9,8 +9,7 @@ using IdentitySample.Models;
 namespace IdentitySample.Models
 {
     [Table("Particulares")]
-    [MetadataType(typeof(ViewModelParticular))]
-    public partial class Particular
+    public class Particular
     {
         [Key]
         public int ParticularId { get; set; }
@@ -28,14 +27,14 @@ namespace IdentitySample.Models
         public DateTime DataNascimento { get; set; }
 
         [Column("CartadeConducao")]
-        public int Cconducao { get; set; }
+        public string Cconducao { get; set; }
 
         [Column("Email")]
         public string Email { get; set; }
 
-        
         [Column("Telefone")]
         public int Tel { get; set; }
+
 
         //tem avaliação como cliente(conjunto de criticas de cliente)
         public IList<Critcliente> Classificacli { get; set; }
@@ -58,6 +57,9 @@ namespace IdentitySample.Models
         //adicionar aqui uma lista de mensagens?
         public IList<Mensagem> Mensagens { get; set; }
 
+        public Particular()
+        {
 
+        }
     }//fim da classe Particular
 }

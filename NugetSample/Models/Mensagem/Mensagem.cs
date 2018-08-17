@@ -9,8 +9,7 @@ using IdentitySample.Models;
 namespace IdentitySample.Models
 {
     [Table("Mensagens")]
-    [MetadataType(typeof(ViewModelMensagem))]
-    public partial class Mensagem
+    public class Mensagem
     {
         [Key]
         public int MensagemId { get; set; }
@@ -30,5 +29,9 @@ namespace IdentitySample.Models
         [Column("Vista")]
         public bool Lida { get; set; }
 
+        public Mensagem()
+        {
+
+        }
     }
 }
